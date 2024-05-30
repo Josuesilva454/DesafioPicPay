@@ -15,7 +15,7 @@ public class Wallet {
     @Column(name = "fullName")
     private String fullName;
     @Column( name = "cpfCnpfj", unique = true)
-    private String cpfCnpfj;
+    private String cpfCnpj;
     @Column(name = "email", unique = true)
     private String email;
     @Column(name = "password")
@@ -27,9 +27,13 @@ public class Wallet {
     @JoinColumn(name = "wallet_type_id")
     private WalletType walletType;
 
-    public Wallet(String fullName, String cpfCnpfj, String email, String password, WalletType walletType) {
+    public Wallet(){
+
+    }
+
+    public Wallet(String fullName, String cpfCnpj, String email, String password, WalletType walletType) {
         this.fullName = fullName;
-        this.cpfCnpfj = cpfCnpfj;
+        this.cpfCnpj = cpfCnpj;
         this.email = email;
         this.password = password;
         this.walletType = walletType;
@@ -52,11 +56,11 @@ public class Wallet {
     }
 
     public String getCpfCnpfj() {
-        return cpfCnpfj;
+        return cpfCnpj;
     }
 
     public void setCpfCnpfj(String cpfCnpfj) {
-        this.cpfCnpfj = cpfCnpfj;
+        this.cpfCnpj = cpfCnpfj;
     }
 
     public String getEmail() {

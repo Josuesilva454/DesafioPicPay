@@ -4,19 +4,23 @@ package tech.picpay.pcpay.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "wallet_type")
+@Table(name = "tb_wallet_type")
 public class WalletType {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="description")
+
     private String description;
 
     public WalletType(Long id, String description) {
         this.id = id;
         this.description = description;
+    }
+
+    public WalletType (){
+
     }
 
     public Long getId() {
@@ -37,8 +41,8 @@ public class WalletType {
     public enum Enum{
 
 
-        USER(1L , "user"),
-        MERCHANT(1l, "MERCHANT");
+        USER(1L , "USER"),
+        MERCHANT(1L, "MERCHANT");
 
         Enum (Long id, String description){
             this.id = id;

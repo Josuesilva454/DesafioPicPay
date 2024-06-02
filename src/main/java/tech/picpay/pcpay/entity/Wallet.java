@@ -14,7 +14,7 @@ public class Wallet {
     private Long id;
     @Column(name = "fullName")
     private String fullName;
-    @Column( name = "cpfCnpfj", unique = true)
+    @Column( name = "cpfCnpj", unique = true)
     private String cpfCnpj;
     @Column(name = "email", unique = true)
     private String email;

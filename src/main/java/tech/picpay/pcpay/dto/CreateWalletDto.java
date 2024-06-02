@@ -7,15 +7,15 @@ import tech.picpay.pcpay.entity.WalletType;
 
 import java.math.BigDecimal;
 
-public record CreateWalletDto (@NotBlank String fullName,@NotBlank String cpfCnpfj,
-                               @NotBlank String email, @NotBlank String password, @NotNull WalletType.Enum wallettype){
+public record CreateWalletDto (@NotBlank String fullName,@NotBlank String cpfCnpj,
+                               @NotBlank String email, @NotBlank String password,  @NotNull WalletType.Enum walletType){
 
     public Wallet toWallet(){
         return new Wallet( fullName,
-        cpfCnpfj,
+        cpfCnpj,
         email,
         password,
-        wallettype.get()
+                walletType.get()
                 );
     }
 }

@@ -19,7 +19,7 @@ public class WalletService {
     }
     public Wallet createWallete(CreateWalletDto dto) {
         // Verifique se a carteira já existe
-        var walletDb = walletRepositoy.findByCpfCnpjAndEmail(dto.cpfCnpfj(), dto.email());
+        var walletDb = walletRepositoy.findByCpfCnpjAndEmail(dto.cpfCnpj(), dto.email());
 
         if (walletDb.isPresent()) {
             throw new WalletDataAlreadyExistsException("CpfCpnj e e-mail já existem");

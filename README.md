@@ -1,6 +1,6 @@
 🚀 Tecnologias utilizadas
--- Java 21
--- Spring Boot
--- Spring Data JPA
--- MySQL
--- Docker
+- Java 21
+- Spring Boot
+  - Spring Data JPA
+- MySQL
+  - Docker

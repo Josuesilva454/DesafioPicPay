@@ -10,3 +10,5 @@ public record TransferDto (@DecimalMin("0.01") @NotNull BigDecimal value,
                @NotNull Long payer,
                @NotNull Long Payee) {
 }
+
+

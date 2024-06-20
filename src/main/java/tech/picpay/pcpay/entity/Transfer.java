@@ -1,6 +1,8 @@
 package tech.picpay.pcpay.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -24,7 +26,7 @@ public class Transfer {
     @Column(name = "value")
     private BigDecimal value;
 
-    public Transfer() {
+    public Transfer(Wallet sender, Wallet receiver, @DecimalMin("0.01") @NotNull BigDecimal value) {
     }
 
     public Transfer(Wallet sender, UUID id, Wallet receiver, BigDecimal value) {

@@ -2,6 +2,7 @@ package tech.picpay.pcpay.entity;
 
 
 import jakarta.persistence.*;
+import tech.picpay.pcpay.exception.InsufficientBalanceException;
 
 import java.math.BigDecimal;
 
@@ -30,6 +31,26 @@ public class Wallet {
     public Wallet(){
 
     }
+    // Constructor, getters, and setters omitted for brevity
+
+    public void debit(BigDecimal amount) {
+        if (balance.compareTo(amount) < 0) {
+            throw new InsufficientBalanceException();
+        }
+        balance = balance.subtract(amount);
+    }
+
+    public void credit(BigDecimal amount) {
+        balance = balance.add(amount);
+    }
+
+
+
+    public boolean isBalanceEqualOrGreaterThan(BigDecimal amount) {
+        return balance.compareTo(amount) >= 0;
+    }
+
+
 
     public Wallet(String fullName, String cpfCnpj, String email, String password, WalletType walletType) {
         this.fullName = fullName;
@@ -93,5 +114,13 @@ public class Wallet {
 
     public void setWalletType(WalletType walletType) {
         this.walletType = walletType;
+    }
+
+    public boolean isTransferAllowedForWalletType() {
+        return this.walletType.equals(WalletType.Enum.USER.get());
+    }
+
+    public boolean isBalancerEqualOrGreatherThan(BigDecimal value) {
+        return  balance.doubleValue() >= value.doubleValue();
     }
 }

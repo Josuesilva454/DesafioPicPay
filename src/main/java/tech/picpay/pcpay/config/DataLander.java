@@ -3,7 +3,6 @@ package tech.picpay.pcpay.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import tech.picpay.pcpay.entity.WalletType;
-import tech.picpay.pcpay.repository.WalletRepositoy;
 import tech.picpay.pcpay.repository.walletTypeRepository;
 
 import java.util.Arrays;

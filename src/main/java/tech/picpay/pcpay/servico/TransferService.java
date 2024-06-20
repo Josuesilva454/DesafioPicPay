@@ -15,14 +15,12 @@ import tech.picpay.pcpay.repository.WalletRepository;
 @Service
 public class TransferService {
 
-    private final TransferService transferService;
     private final AuthorizationServico authorizationServico;
     private final NotificationService notificationService;
     private final WalletRepository walletRepositoy;
     private final TransferRepository transferRepository;
 
-    public TransferService(TransferService transferService, AuthorizationServico authorizationServico, NotificationService notificationService, WalletRepository walletRepositoy, TransferRepository transferRepository) {
-        this.transferService = transferService;
+    public TransferService( AuthorizationServico authorizationServico, NotificationService notificationService, WalletRepository walletRepositoy, TransferRepository transferRepository) {
         this.authorizationServico = authorizationServico;
         this.notificationService = notificationService;
         this.walletRepositoy = walletRepositoy;

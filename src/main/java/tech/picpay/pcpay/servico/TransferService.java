@@ -35,7 +35,6 @@ public class TransferService {
         var receiver = walletRepositoy.findById(transferDto.Payee())
                 .orElseThrow(() -> new WalletNotFoundException(transferDto.Payee()));
 
-
         validateTransfer(transferDto, sender);
         sender.debit(transferDto.value());
         receiver.credit(transferDto.value());
@@ -44,19 +43,12 @@ public class TransferService {
         walletRepositoy.save(sender);
         walletRepositoy.save(receiver);
 
-
         var TrasferResul = transferRepository.save(transfer);
-
 
         return TrasferResul;
     }
 
-
-
-
-
     private void validateTransfer(TransferDto transferDto, Wallet sender) {
-
 
         if (!sender.isTransferAllowedForWalletType()) {
             throw new TransferNotAllowedForWalletTypeException();
